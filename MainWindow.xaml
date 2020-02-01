@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfProject_Shipov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProject_Shipov"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name ="Main">
+        <TextBlock x:Name="textBlock"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"></TextBlock>
+        <Button Content="Сотрудники" Margin="679,14,13,371" FontSize="13" Height="30" Width="100"/>
+
+        <Button Content="Департаменты"  Margin="679,70,13,315" FontSize="13" Height="30" Width="100"/>
+
+    </Grid>
+</Window>

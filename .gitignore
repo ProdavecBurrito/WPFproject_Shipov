@@ -1,0 +1,12 @@
+
+.vs/WpfProject_Shipov/v16/.suo
+
+.vs/WpfProject_Shipov/v16/Server/sqlite3/db.lock
+
+bin/Debug/
+
+.vs/WpfProject_Shipov/v16/
+
+*.cache
+
+obj/Debug/
