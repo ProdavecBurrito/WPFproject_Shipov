@@ -4,15 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProject_Shipov"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Name ="Main">
-        <TextBlock x:Name="textBlock"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"></TextBlock>
-        <Button Content="Сотрудники" Margin="679,14,13,371" FontSize="13" Height="30" Width="100"/>
+        Title="MainWindow" Height="400" Width="854.188">
 
-        <Button Content="Департаменты"  Margin="679,70,13,315" FontSize="13" Height="30" Width="100"/>
+    <Grid Background="Lavender" Margin="1,-1,0,1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="189*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="679*"/>
+            <ColumnDefinition Width="167*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Margin="20" Name="Employee" SelectionMode="Single" SelectionChanged="Employee_SelectionChanged" Grid.RowSpan="4" ></ListBox>
+        <Button Margin="20,19,20,21" Click="Button_Click" Grid.Column="1" >Добавить</Button>
 
     </Grid>
 </Window>
+    

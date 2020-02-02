@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace WpfProject_Shipov
 {
-    class Employee
+    public class Employee : Department
     {
-        public string Name {get; private set; }
+        public string department { get; set; }
+        public string Name { get; set; }
+        public int Salary { get; set; }
+        public override string ToString()
+        {
+            return $"{Name}, {Salary}, {department}";
+        }
+
     }
 }
