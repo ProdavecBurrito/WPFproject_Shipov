@@ -19,7 +19,7 @@
             <ColumnDefinition Width="679*"/>
             <ColumnDefinition Width="167*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Margin="20" Name="Employee" SelectionMode="Single" SelectionChanged="Employee_SelectionChanged" Grid.RowSpan="4" ></ListBox>
+        <ListView Margin="20" Name="Employee" SelectionMode="Single" SelectionChanged="Employee_SelectionChanged" Grid.RowSpan="4" ></ListView>
         <Button Margin="20,19,20,21" Click="Button_Click" Grid.Column="1" >Добавить</Button>
 
     </Grid>
