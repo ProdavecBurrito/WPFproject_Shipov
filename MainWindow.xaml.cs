@@ -21,18 +21,30 @@ namespace WpfProject_Shipov
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Employee> items = new ObservableCollection<Employee>();
+        public List<Employee> employeers = new List<Employee>();
+        public List<Department> departments = new List<Department>();
         public MainWindow()
         {
             InitializeComponent();
-            ShowList();
+            DepartmentsList();
+            ShowWorkers();
+
+            EmpList.ItemsSource = employeers;
+            DepList.ItemsSource = departments;
         }
-        void ShowList()
+
+        public void ShowWorkers()
         {
-            items.Add(new Employee { Name = "Алексей", Salary = 40000, department = "Тех" });
-            items.Add(new Employee { Name = "Михаил", Salary = 35000, department = "Авто" });
-            items.Add(new Employee { Name = "Петр", Salary = 30000, department = "Мед" });
-            Employee.ItemsSource = items;
+            employeers.Add(new Employee() { Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() { Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() { Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
+        }
+
+        public void DepartmentsList()
+        {
+            departments.Add(new Department() { DepName = "Тех" });
+            departments.Add(new Department() { DepName = "Мед" });
+            departments.Add(new Department() { DepName = "Авто" });
         }
 
         private void Employee_SelectionChanged(object sender,SelectionChangedEventArgs e)

@@ -10,17 +10,28 @@
 
     <Grid Background="Lavender" Margin="1,-1,0,1">
         <Grid.RowDefinitions>
-            <RowDefinition Height="87*"/>
-            <RowDefinition Height="86*"/>
-            <RowDefinition Height="86*"/>
-            <RowDefinition Height="189*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="679*"/>
             <ColumnDefinition Width="167*"/>
         </Grid.ColumnDefinitions>
-        <ListView Margin="20" Name="Employee" SelectionMode="Single" SelectionChanged="Employee_SelectionChanged" Grid.RowSpan="4" ></ListView>
-        <Button Margin="20,19,20,21" Click="Button_Click" Grid.Column="1" >Добавить</Button>
+        <ListBox x:Name="EmpList" 
+                 
+                 ItemsSource="{Binding employeers}"
+                 Margin="20" 
+                 SelectionMode="Single" 
+                 SelectionChanged="Employee_SelectionChanged" 
+                 Grid.RowSpan="5" >
+        </ListBox>
+        <Button x:Name="AddEmp" Margin="20" Click="Button_Click" Grid.Column="1" FontSize="11">Добавить сотрудника</Button>
+        <Button x:Name="AddDep" Grid.Column="1" Margin="20" Grid.Row="1" FontSize="11">Добавить департамент</Button>
+        <Button x:Name="ChangeDep" Grid.Column="1" Margin="20" Grid.Row="2" FontSize="11" >Изменить департамент</Button>
+        <ComboBox x:Name="DepList" ItemsSource="{Binding departments}" Grid.Column="1" Margin="20" Grid.Row="3"></ComboBox>
 
     </Grid>
 </Window>

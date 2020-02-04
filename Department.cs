@@ -9,5 +9,9 @@ namespace WpfProject_Shipov
     public class Department
     {
         public string DepName { get; set; }
+        public override string ToString()
+        {
+            return $"{DepName}";
+        }
     }
 }
