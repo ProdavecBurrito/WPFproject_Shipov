@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProject_Shipov"
         mc:Ignorable="d"
-        Title="AddEmp" Height="450" Width="800">
-    <Grid>
-        
+        Title="AddEmp" Height="400" Width="350">
+    <Grid x:Name="AddNewEmp">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="86*"/>
+            <ColumnDefinition Width="85*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="99*"/>
+            <RowDefinition Height="99*"/>
+            <RowDefinition Height="99*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="26" Margin="20,11" TextWrapping="Wrap" Text="Добавление Сотрудника" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="100,20,100,50" Grid.Row="1" TextWrapping="Wrap" Text="Имя" FontSize="23" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="100,20,100,50" Grid.Row="2" TextWrapping="Wrap" Text="Зарплата" FontSize="14" Grid.ColumnSpan="2" RenderTransformOrigin="0.44,0.517"/>
+        <TextBlock Margin="100,20,100,50" Grid.Row="3" TextWrapping="Wrap" Text="Департамент" FontSize="15" Grid.ColumnSpan="2" RenderTransformOrigin="0.695,0.496"/>
+        <TextBox x:Name="NewName" Grid.ColumnSpan="2" Height="23" Margin="100,48,100,9" Grid.Row="1" TextWrapping="Wrap" Text="" />
+        <TextBox x:Name="NewSalary" Grid.ColumnSpan="2" Height="23" Margin="100,48,100,9" Grid.Row="2" TextWrapping="Wrap" Text="" />
+        <TextBox x:Name="CheckDep" Grid.ColumnSpan="2" Height="23" Margin="100,48,100,9" Grid.Row="3" TextWrapping="Wrap" Text="" />
+        <Button x:Name="Accept"  Grid.Column="1"  Margin="80,55,10,15" Grid.Row="3" Click="acceptButton_Click">Подтвердить</Button>
+
     </Grid>
 </Window>

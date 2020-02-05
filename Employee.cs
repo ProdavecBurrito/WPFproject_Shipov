@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace WpfProject_Shipov
         public int Salary { get; set; }
         public override string ToString()
         {
-            return $"{Name}, {Salary}, {DepName}";
+            return $"{Name} {Salary} {DepName}";
         }
 
     }
