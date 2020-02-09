@@ -37,12 +37,12 @@ namespace WpfProject_Shipov
 
         public void ShowWorkers()
         {
-            employeers.Add(new Employee() { Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
-            employeers.Add(new Employee() { Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
-            employeers.Add(new Employee() { Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
-            employeers.Add(new Employee() { Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
-            employeers.Add(new Employee() { Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
-            employeers.Add(new Employee() { Name = "Елена", Salary = 430000, DepName = departments[2].DepName });
+            employeers.Add(new Employee() { ID = 1, Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() { ID = 2, Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() { ID = 3, Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
+            employeers.Add(new Employee() { ID = 4, Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() { ID = 5, Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() { ID = 6, Name = "Елена", Salary = 43000, DepName = departments[2].DepName });
         }
 
         public void DepartmentsList()
@@ -76,7 +76,6 @@ namespace WpfProject_Shipov
             if (EditName.Text != "")
             {
                 employeers[EmpList.SelectedIndex].Name = EditName.Text;
-                string nen = employeers[EmpList.SelectedIndex].Name;
                 employeers[EmpList.SelectedIndex].Salary = Convert.ToInt32(EditSalary.Text);
 
                 for (int i = 0; i < MainWindow.departments.Count; i++)

@@ -34,12 +34,17 @@ namespace WpfProject_Shipov
             {
                 for (int i = 0; i < MainWindow.departments.Count; i++)
                 {
-                    if (CheckDep.Text == MainWindow.departments[i].ToString())
+                    if (Convert.ToInt32(NewID.Text) == MainWindow.employeers[i].ID)
                     {
-                        MainWindow.employeers.Add(new Employee() { Name = NewName.Text, Salary = Convert.ToInt32(NewSalary.Text), DepName = CheckDep.Text });
+                        MessageBox.Show("Такой ID уже есть");
                         break;
                     }
-                    else if (i+1 == MainWindow.departments.Count && CheckDep.Text != MainWindow.departments[i].ToString())
+                    else if (CheckDep.Text == MainWindow.departments[i].ToString())
+                    {
+                        MainWindow.employeers.Add(new Employee() { ID = Convert.ToInt32(NewID.Text), Name = NewName.Text, Salary = Convert.ToInt32(NewSalary.Text), DepName = CheckDep.Text });
+                        break;
+                    }
+                    else if (i + 1 == MainWindow.departments.Count && CheckDep.Text != MainWindow.departments[i].ToString())
                     {
                         MessageBox.Show("Такого департамента не существует");
                     }
