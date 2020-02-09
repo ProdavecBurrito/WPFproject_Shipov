@@ -39,7 +39,6 @@
             </ListView.RenderTransform>
             <ListView.View>
                 <GridView x:Name="Stack">
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}">ID</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Имя</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Salary}" Width="100">Зарплата</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=DepName}" Width="100">Департамент</GridViewColumn>

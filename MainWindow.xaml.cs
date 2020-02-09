@@ -22,6 +22,7 @@ namespace WpfProject_Shipov
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        DataBase db = new DataBase();
         public event PropertyChangedEventHandler PropertyChanged;
         static public ObservableCollection<Employee> employeers = new ObservableCollection<Employee>();
         static public ObservableCollection<Department> departments = new ObservableCollection<Department>();
@@ -37,12 +38,13 @@ namespace WpfProject_Shipov
 
         public void ShowWorkers()
         {
-            employeers.Add(new Employee() { ID = 1, Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
-            employeers.Add(new Employee() { ID = 2, Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
-            employeers.Add(new Employee() { ID = 3, Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
-            employeers.Add(new Employee() { ID = 4, Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
-            employeers.Add(new Employee() { ID = 5, Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
-            employeers.Add(new Employee() { ID = 6, Name = "Елена", Salary = 43000, DepName = departments[2].DepName });
+            employeers.Add(new Employee() {  Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() {  Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() {  Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
+            employeers.Add(new Employee() {  Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() {  Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() {  Name = "Елена", Salary = 43000, DepName = departments[2].DepName });
+            db.AddToDataBase(employeers);
         }
 
         public void DepartmentsList()
