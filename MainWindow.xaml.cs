@@ -31,6 +31,7 @@ namespace WpfProject_Shipov
             InitializeComponent();
             DepartmentsList();
             ShowWorkers();
+            db.AddToDataBase(employeers);
 
             EmpList.ItemsSource = employeers;
             DepList.ItemsSource = departments;
@@ -44,7 +45,7 @@ namespace WpfProject_Shipov
             employeers.Add(new Employee() {  Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
             employeers.Add(new Employee() {  Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
             employeers.Add(new Employee() {  Name = "Елена", Salary = 43000, DepName = departments[2].DepName });
-            db.AddToDataBase(employeers);
+            
         }
 
         public void DepartmentsList()
@@ -62,6 +63,7 @@ namespace WpfProject_Shipov
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new AddEmp().Show();
+            db.InsertDB();
         }
 
         private void AddDep_Click(object sender, RoutedEventArgs e)

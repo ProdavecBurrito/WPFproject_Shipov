@@ -5,36 +5,32 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Data;
 
 namespace WpfProject_Shipov
 {
     class DataBase
     {
-        string connectionString = @" Data Source=(localdb)\MSSQLLocalDB;
-        Initial Catalog = WPFPROJECT_Shipov; 
-        Integrated Security = True; 
-        Pooling=False";
+        SqlDataAdapter adapter;
+        SqlConnection connection;
 
         public void AddToDataBase(ObservableCollection<Employee> emp)
         {
             try
             {
-                for (int i = 0; i < emp.Count; i++)
+                var connectionStringBuilder = new SqlConnectionStringBuilder
                 {
-                    var sql = String.Format("INSERT INTO People (Name, Salary) " +
-                                                "VALUES (N'{0}', '{1}')",
-                                                emp[i].Name,
-                                                emp[i].Salary);
-                    Console.WriteLine(sql);
+                    DataSource = @"(localdb)\MSSQLLocalDB",
+                    InitialCatalog = "WPFPROJECT_Shipov",
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
+                    Pooling = true
+                };
 
-                        SqlCommand command = new SqlCommand(sql, connection);
-                        command.ExecuteNonQuery();
-                    }
-                }
+                connection = new SqlConnection(connectionStringBuilder.ConnectionString);
+                adapter = new SqlDataAdapter();
+
+                SqlCommand command = new SqlCommand("SELECT Name, Salary FROM People", connection);
+                adapter.SelectCommand = command;
             }
             catch (Exception e)
             {
@@ -46,34 +42,20 @@ namespace WpfProject_Shipov
             }
         }
 
-        public void ReadDataBase()
+        public void InsertDB()
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    var sql = @"SELECT * FROM People";
+            SqlCommand command = new SqlCommand(@"INSERT FROM People (Name, Salary)
+                                VALUES(@Name, @Salary); SET @ID = @@IDENTITY;",
+                                connection);
 
-                    SqlCommand command = new SqlCommand(sql, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"{reader.GetValue(0),4} | " +
-                                          $"{reader["Name"],10} | " +
-                                          $"{reader[2],15} | " +
-                                          $"{reader[3],25} | ");
-                    }
-                    //connection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            command.Parameters.Add("@Name", SqlDbType.NVarChar, -1, "Name");
+            command.Parameters.Add("@Salary", SqlDbType.NVarChar, -1, "Salary");
+
+            SqlParameter param = command.Parameters.Add("@ID", SqlDbType.Int, 0, "ID");
+
+            param.Direction = ParameterDirection.Output;
+
+            adapter.InsertCommand = command;
         }
-
-
-
     }
 }
