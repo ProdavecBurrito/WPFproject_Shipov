@@ -18,13 +18,15 @@
             <RowDefinition Height="99*"/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="26" Margin="20,11" TextWrapping="Wrap" Text="Добавление Сотрудника" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="100,20,100,50" Grid.Row="1" TextWrapping="Wrap" Text="Имя" FontSize="23" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="100,20,100,50" Grid.Row="2" TextWrapping="Wrap" Text="Зарплата" FontSize="14" Grid.ColumnSpan="2" RenderTransformOrigin="0.44,0.517"/>
-        <TextBlock Margin="100,20,100,50" Grid.Row="3" TextWrapping="Wrap" Text="Департамент" FontSize="15" Grid.ColumnSpan="2" RenderTransformOrigin="0.695,0.496"/>
-        <TextBox x:Name="NewName" Grid.ColumnSpan="2" Height="23" Margin="100,48,100,9" Grid.Row="1" TextWrapping="Wrap" Text="" />
-        <TextBox x:Name="NewSalary" Grid.ColumnSpan="2" Height="23" Margin="100,48,100,9" Grid.Row="2" TextWrapping="Wrap" Text="" />
-        <TextBox x:Name="CheckDep" Grid.ColumnSpan="2" Height="23" Margin="100,48,100,9" Grid.Row="3" TextWrapping="Wrap" Text="" />
+        <TextBlock Margin="100,68,100,11" Grid.Row="1" TextWrapping="Wrap" Text="Имя" FontSize="15" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="100,37,100,40" Grid.Row="2" TextWrapping="Wrap" Text="Зарплата" FontSize="15" Grid.ColumnSpan="2" RenderTransformOrigin="0.44,0.517"/>
+        <TextBlock Margin="99,3,101,73" Grid.Row="3" TextWrapping="Wrap" Text="Департамент" FontSize="15" Grid.ColumnSpan="2" RenderTransformOrigin="0.695,0.496"/>
+        <TextBox x:Name="NewName" Grid.ColumnSpan="2" Height="23" Margin="100,93,100,89" Grid.Row="1" TextWrapping="Wrap" Text="" Grid.RowSpan="2" />
+        <TextBox x:Name="NewSalary" Grid.ColumnSpan="2" Height="23" Margin="100,63,100,17" Grid.Row="2" TextWrapping="Wrap" Text="" />
+        <TextBox x:Name="CheckDep" Grid.ColumnSpan="2" Height="23" Margin="99,31,101,48" Grid.Row="3" TextWrapping="Wrap" Text="" />
         <Button x:Name="Accept"  Grid.Column="1"  Margin="80,55,10,15" Grid.Row="3" Click="acceptButton_Click">Подтвердить</Button>
+        <TextBlock Margin="103,4,0,78" Grid.Row="1"  Text="ID" FontSize="15"/>
+        <TextBox x:Name="NewID" Grid.ColumnSpan="2"  Height="23" Margin="100,28,100,51" Grid.Row="1" TextWrapping="Wrap" Text=""/>
 
     </Grid>
 </Window>

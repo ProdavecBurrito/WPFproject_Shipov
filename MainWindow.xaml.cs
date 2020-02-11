@@ -22,6 +22,7 @@ namespace WpfProject_Shipov
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        DataBase db = new DataBase();
         public event PropertyChangedEventHandler PropertyChanged;
         static public ObservableCollection<Employee> employeers = new ObservableCollection<Employee>();
         static public ObservableCollection<Department> departments = new ObservableCollection<Department>();
@@ -30,6 +31,7 @@ namespace WpfProject_Shipov
             InitializeComponent();
             DepartmentsList();
             ShowWorkers();
+            db.AddToDataBase(employeers);
 
             EmpList.ItemsSource = employeers;
             DepList.ItemsSource = departments;
@@ -37,12 +39,13 @@ namespace WpfProject_Shipov
 
         public void ShowWorkers()
         {
-            employeers.Add(new Employee() { Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
-            employeers.Add(new Employee() { Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
-            employeers.Add(new Employee() { Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
-            employeers.Add(new Employee() { Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
-            employeers.Add(new Employee() { Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
-            employeers.Add(new Employee() { Name = "Елена", Salary = 430000, DepName = departments[2].DepName });
+            employeers.Add(new Employee() {  Name = "Петр", Salary = 40000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() {  Name = "Михаил", Salary = 30000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() {  Name = "Александр", Salary = 50000, DepName = departments[2].DepName });
+            employeers.Add(new Employee() {  Name = "Николай", Salary = 45000, DepName = departments[0].DepName });
+            employeers.Add(new Employee() {  Name = "Анастасия", Salary = 38000, DepName = departments[1].DepName });
+            employeers.Add(new Employee() {  Name = "Елена", Salary = 43000, DepName = departments[2].DepName });
+            
         }
 
         public void DepartmentsList()
@@ -60,6 +63,7 @@ namespace WpfProject_Shipov
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new AddEmp().Show();
+            db.InsertDB();
         }
 
         private void AddDep_Click(object sender, RoutedEventArgs e)
@@ -76,7 +80,6 @@ namespace WpfProject_Shipov
             if (EditName.Text != "")
             {
                 employeers[EmpList.SelectedIndex].Name = EditName.Text;
-                string nen = employeers[EmpList.SelectedIndex].Name;
                 employeers[EmpList.SelectedIndex].Salary = Convert.ToInt32(EditSalary.Text);
 
                 for (int i = 0; i < MainWindow.departments.Count; i++)

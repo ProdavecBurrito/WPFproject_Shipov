@@ -36,10 +36,10 @@ namespace WpfProject_Shipov
                 {
                     if (CheckDep.Text == MainWindow.departments[i].ToString())
                     {
-                        MainWindow.employeers.Add(new Employee() { Name = NewName.Text, Salary = Convert.ToInt32(NewSalary.Text), DepName = CheckDep.Text });
+                        MainWindow.employeers.Add(new Employee() {Name = NewName.Text, Salary = Convert.ToInt32(NewSalary.Text), DepName = CheckDep.Text });
                         break;
                     }
-                    else if (i+1 == MainWindow.departments.Count && CheckDep.Text != MainWindow.departments[i].ToString())
+                    else if (i + 1 == MainWindow.departments.Count && CheckDep.Text != MainWindow.departments[i].ToString())
                     {
                         MessageBox.Show("Такого департамента не существует");
                     }

@@ -24,27 +24,6 @@
             <ColumnDefinition Width="492*"/>
             <ColumnDefinition Width="155*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="EmpList" 
-                 ItemsSource="{Binding employeers}"
-                 Margin="5,13" 
-                 SelectionMode="Single" 
-                 SelectionChanged="Employee_SelectionChanged" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="4" >
-            <ListView.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.125"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.498"/>
-                </TransformGroup>
-            </ListView.RenderTransform>
-            <ListView.View>
-                <GridView x:Name="Stack">
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Имя</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Salary}" Width="100">Зарплата</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=DepName}" Width="100">Департамент</GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <Button x:Name="AddEmp" Margin="14,20,13,13" Click="Button_Click" FontSize="10" Grid.Column="2">Добавить сотрудника</Button>
         <Button x:Name="AddDep" Margin="13,68,14,46" FontSize="10" Click="AddDep_Click" RenderTransformOrigin="1.346,1.033" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">Добавить департамент</Button>
         <Button x:Name="EditEmp" Margin="35,36,36,6" FontSize="10" Click="EditEmp_Click" Grid.Row="3" >Редактирование</Button>
@@ -58,6 +37,13 @@
         <TextBlock Margin="60,51,53,1" Grid.Row="2" >Департамент</TextBlock >
         <TextBlock Margin="72,52,60,64" Grid.Row="1" Grid.RowSpan="2" >Зарплата</TextBlock>
         <TextBlock Margin="85,50,80,55" Grid.RowSpan="2" >Имя</TextBlock>
+        <DataGrid x:Name="EmpList" Grid.Column="1" Margin="0,19,0,8" Grid.RowSpan="4">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="NameCol" Binding="{Binding Name}" Header="Имя"/>
+                <DataGridTextColumn x:Name="SalaryCol" Binding="{Binding Salary}" Header="Зарплата"/>
+                <DataGridTextColumn x:Name="DepName" Binding="{Binding DepName}" Header="Департамент"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
