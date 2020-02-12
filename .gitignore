@@ -10,3 +10,9 @@ bin/Debug/
 *.cache
 
 obj/Debug/
+
+*.p7s
+
+*.nupkg
+
+*.dll
